@@ -1,3 +1,3 @@
 output "print" {
-  value= "helloworld"
+  value= "hello world"
 }
