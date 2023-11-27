@@ -57,7 +57,7 @@ resource "aws_instance" "redis" {
 }
 resource "aws_route53_record" "redis" {
   zone_id = "Z02456543UCI8DLI5F070"
-  name    = "catalogue-dev.sivadevops22.online"
+  name    = "redis-dev.sivadevops22.online"
   type    = "A"
   ttl     = 30
   records = [aws_instance.redis.private_ip]
