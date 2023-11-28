@@ -21,15 +21,22 @@
 ##  value = var.list_values[0]
 #  value = var.list_values[1]
 #}
-variable "map_values" {
+#variable "map_values" {
+#  default = {
+#    apple = {
+#      stocks = 100
+#    }
+#    banana = {
+#      stocks = 100
+#    }
+#  }
+#}
+variable "map_values"  {
   default = {
-    apple = {
-      stocks = 100
-    }
-    banana = {
-      stocks = 100
-    }
+    apple = 100
+    banana = 200
   }
+
 }
 output "map_values" {
   value = var.map_values["apple"].stocks
