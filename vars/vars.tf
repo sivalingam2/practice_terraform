@@ -6,11 +6,19 @@ output "test" {
   value = var.test
 }
 # list variables
+#variable "list_values" {
+#  default = [ "siva", "lingam" ]
+#}
 variable "list_values" {
-  default = [ "siva", "lingam" ]
-}
+    default = [
+      "siva",
+      "lingam"
+    ]
+  }
+
 # how to access the list values
 output "list_values" {
-  value = var.list_values[0]
+#  value = var.list_values[0]
+  value = var.list_values[1]
 }
 
