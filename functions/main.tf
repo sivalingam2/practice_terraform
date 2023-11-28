@@ -13,5 +13,5 @@ variable "maps" {
   }
 }
 output "maps" {
-  value = lookup(var.maps["hyderabad"], "stocks", null)
+  value = lookup(var.maps["hyderabad"], "stocks", "no places")
 }
