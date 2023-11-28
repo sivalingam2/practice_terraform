@@ -12,6 +12,6 @@ variable "maps" {
     }
   }
 }
-output "places" {
+output "maps" {
   value = lookup(var.maps["hyderabad"], "stocks", null)
 }
