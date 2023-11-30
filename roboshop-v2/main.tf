@@ -46,6 +46,9 @@ variable "components" {
     dispatch = {
       name = "dispatch-dev"
     }
+    rabbitmq = {
+      name = "rabbitmq-dev"
+    }
 
 
   }
@@ -61,10 +64,11 @@ resource "aws_instance" "instance" {
     Name = lookup(each.value, "name", null )
   }
 }
-#resource "aws_route53_record" "frontend" {
-#  zone_id = var.zone_id
-#  name    = "frontend-dev.sivadevops22.online"
-#  type    = "A"
-#  ttl     = 30
-#  records = [aws_instance.frontend.private_ip]
-#}
+resource "aws_route53_record" "record" {
+  for_each = var.components
+  zone_id = var.zone_id
+  name    = "${lookup(each.value, "name", null )}.sivadevops22.online"
+  type    = "A"
+  ttl     = 30
+  records = [lookup(aws_instance.instance, each.key["private"], null)]
+}
