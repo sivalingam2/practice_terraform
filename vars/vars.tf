@@ -1,7 +1,10 @@
 # plain variables
-#variable "test" {
-#  default = "hello world"
-#}
+variable "test" {
+  description = "hello world letters" # it is not a mandatory line but it is useful because if some read your code they will understand
+   type = string # this is the mandatory
+  default = "hello world"
+}
+
 #output "test" {
 #  value = var.test
 #}
