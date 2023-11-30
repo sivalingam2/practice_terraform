@@ -9,12 +9,15 @@ variable "components" {
 
   }
 }
-resource "aws_instance" "web" {
-  for_each = var.components
-  ami           = "ami-03265a0778a880afb"
-  instance_type = "t2.micro"
-
-  tags = {
-    Name = lookup(var.components, each.value["name"], null )
-  }
+#resource "aws_instance" "web" {
+#  for_each = var.components
+#  ami           = "ami-03265a0778a880afb"
+#  instance_type = "t2.micro"
+#
+#  tags = {
+#    Name = lookup(var.components, each.value["name"], null )
+#  }
+#}
+output "components" {
+  value = var.components
 }
