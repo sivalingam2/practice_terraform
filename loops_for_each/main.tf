@@ -15,6 +15,6 @@ resource "aws_instance" "web" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = lookup(var.components, each.key, null )
+    Name = lookup(var.components, each.key["name"], null )
   }
 }
