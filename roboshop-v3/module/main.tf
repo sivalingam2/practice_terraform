@@ -16,11 +16,12 @@ resource "aws_route53_record" "record" {
   records = [aws_instance.instance.private_ip]
 }
 
-depends_on = [
-  aws_route53_record.record
 
-]
   resource "null_resource" "ansible" {
+    depends_on = [
+      aws_route53_record.record
+
+    ]
     provisioner "local-exec" {
   command = <<EOF
 cd /root/asnible_project
