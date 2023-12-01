@@ -10,7 +10,7 @@ resource "aws_instance" "instance" {
 }
 resource "aws_route53_record" "record" {
   zone_id = var.zone_id
-  name    = "${var.name }.sivadevops22.online"
+  name    = "${var.name }-dev.sivadevops22.online"
   type    = "A"
   ttl     = 30
   records = [aws_instance.instance.private_ip]
@@ -25,7 +25,7 @@ resource "null_resource" "ansible" {
 
   provisioner "local-exec" {
     command = <<EOF
-cd /home/centos/ansible_project
+cd /root/ansible_project
 git pull
 sleep 30
 ansible-playbook -i ${var.name}-dev.sivadevops22.online, main.yml -e ansible_user=centos -e ansible_password=DevOps321 -e component=${var.name}
