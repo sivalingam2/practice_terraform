@@ -6,9 +6,7 @@ resource "aws_instance" "instance" {
   tags = {
     Name = var.name
   }
-  provisioner "local-exec" {
-    command =  "sleep 60 "
-  }
+
 }
 resource "aws_route53_record" "record" {
   zone_id = var.zone_id
@@ -16,4 +14,16 @@ resource "aws_route53_record" "record" {
   type    = "A"
   ttl     = 30
   records = [aws_instance.instance.private_ip]
+}
+
+
+  resource "null_resource" "ansible" {
+    provisioner "local-exec" {
+  command = <<EOF
+cd /root/asnible_project
+git pull
+sleep 30
+ansible-playbook -i ${var.name }.sivadevops22.online, -e ansible_user = centos -e ansible_password = DevOps321 -e component= ${var.name}
+EOF
+}
 }
