@@ -27,7 +27,7 @@ resource "aws_route53_record" "record" {
 cd /root/ansible_project
 git pull
 sleep 30
-ansible-playbook -i ${var.name }.sivadevops22.online, main.yml -e ansible_user=centos -e ansible_password=DevOps321 -e component=${var.name}
+ansible-playbook -i ${var.name}-dev.sivadevops22.online, main.yml -e ansible_user=centos -e ansible_password=DevOps321 -e component=${var.name}
 EOF
 }
 }
