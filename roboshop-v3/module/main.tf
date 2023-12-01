@@ -24,7 +24,7 @@ resource "aws_route53_record" "record" {
     ]
     provisioner "local-exec" {
   command = <<EOF
-cd /root/ansible_project
+cd /home/centos/ansible_project
 git pull
 sleep 30
 ansible-playbook -i ${var.name}-dev.sivadevops22.online, main.yml -e ansible_user=centos -e ansible_password=DevOps321 -e component=${var.name}
