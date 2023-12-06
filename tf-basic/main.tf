@@ -1,6 +1,5 @@
 variable "vpc_id" {
  default = "10.0.0.0/16"
-
 }
 variable "public_subnet" {
   default = ["10.0.1.0/24","10.0.2.0/24"]
@@ -19,7 +18,7 @@ resource "aws_subnet" "public_subnet" {
   vpc_id = aws_vpc.main.id
   cidr_block = var.public_subnet[count.index]
   tags = {
-    Name = "public - ${count.index+1}"
+    name = "public - ${count.index+1}"
   }
 }
 resource "aws_subnet" "app_subnet" {
@@ -27,7 +26,7 @@ resource "aws_subnet" "app_subnet" {
   vpc_id = aws_vpc.main.id
   cidr_block = var.app_subnet[count.index]
   tags = {
-    Name = "app - ${count.index+1}"
+    name = "app - ${count.index+1}"
   }
 }
 resource "aws_subnet" "db_subnet" {
@@ -35,6 +34,6 @@ resource "aws_subnet" "db_subnet" {
   vpc_id = aws_vpc.main.id
   cidr_block = var.db_subnet[count.index]
   tags = {
-    Name = "db - ${count.index+1}"
+    name = "db - ${count.index+1}"
   }
 }
