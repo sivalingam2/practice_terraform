@@ -21,6 +21,3 @@ variable "vpc" {
 
   }
 }
-output "all_subnets" {
-value = { for i,j in var.vpc["main"]["subnets"]: i => j}
-}
