@@ -19,7 +19,7 @@ resource "aws_subnet" "public_subnet" {
   vpc_id = aws_vpc.main.id
   cidr_block = var.public_subnet[count.index]
   tags = {
-    name = "public - ${count.index+1}"
+    Name = "public - ${count.index+1}"
   }
 }
 resource "aws_subnet" "app_subnet" {
@@ -27,7 +27,7 @@ resource "aws_subnet" "app_subnet" {
   vpc_id = aws_vpc.main.id
   cidr_block = var.app_subnet[count.index]
   tags = {
-    name = "app - ${count.index+1}"
+    Name = "app - ${count.index+1}"
   }
 }
 resource "aws_subnet" "db_subnet" {
@@ -35,6 +35,6 @@ resource "aws_subnet" "db_subnet" {
   vpc_id = aws_vpc.main.id
   cidr_block = var.db_subnet[count.index]
   tags = {
-    name = "db - ${count.index+1}"
+    Name = "db - ${count.index+1}"
   }
 }
