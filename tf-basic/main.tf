@@ -9,7 +9,7 @@ variable "app_subnet" {
   default = ["10.0.3.0/24","10.0.4.0/24"]
 }
 variable "db_subnet" {
-  default = ["10.0.4.0/24","10.0.5.0/24"]
+  default = ["10.0.5.0/24","10.0.6.0/24"]
 }
 resource "aws_vpc" "main" {
   cidr_block = var.vpc_id
